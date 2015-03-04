@@ -4,50 +4,45 @@
 #include <QString>
 #include <QList>
 
+class Tag {
+public:
+	Tag();
+	void dump() const;
 
+	QString getLongName() const;
+	QString getSignature() const { return m_signature; };
 
-class Tag
-{
-    public:
-        Tag();
-        void dump() const;
-
-        QString getLongName() const;
-        QString getSignature() const { return m_signature; };
-        
-        QString className;
-        QString m_name;
-        QString filepath;
-        enum { TAG_FUNC, TAG_VARIABLE} type;
-        QString m_signature;
-        int lineNo;
+	QString className;
+	QString m_name;
+	QString filepath;
+	enum { TAG_FUNC, TAG_VARIABLE} type;
+	QString m_signature;
+	int lineNo;
 };
 
 
-class TagScanner
-{
-    public:
+class TagScanner {
+public:
 
-        TagScanner();
-        ~TagScanner();
+	TagScanner();
+	~TagScanner();
 
-        void init();
+	void init();
 
-        int scan(QString filepath, QList<Tag> *taglist);
-        void dump(const QList<Tag> &taglist);
+	int scan(QString filepath, QList<Tag> *taglist);
+	void dump(const QList<Tag> &taglist);
 
-    private:
-        int parseOutput(QByteArray output, QList<Tag> *taglist);
-
-
-    static int execProgram(QString name, QStringList argList,
-                            QByteArray *stdoutContent,
-                            QByteArray *stderrContent);
+private:
+	int parseOutput(QByteArray output, QList<Tag> *taglist);
 
 
-        bool m_ctagsExist;
+	static int execProgram(QString name, QStringList argList,
+			QByteArray *stdoutContent,
+			QByteArray *stderrContent);
+
+
+	bool m_ctagsExist;
 };
 
 
 #endif
-

@@ -3,6 +3,7 @@
 
 #include <QDebug>
 
+//#define ENABLE_DEBUGMSG
 #ifndef ENABLE_DEBUGMSG
 #define debugMsg(fmt...)  do{}while(0)
 #else
@@ -12,8 +13,6 @@ void debugMsg_(const char *file, int lineNo, const char *fmt,...);
 
 void errorMsg(const char *fmt,...);
 void infoMsg(const char *fmt,...);
-
-
 
 #endif // FILE__LOG_H
 

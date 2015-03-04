@@ -8,56 +8,52 @@
 #include "ui_opendialog.h"
 
 
-class OpenDialog : public QDialog
-{
-    Q_OBJECT
-
+class OpenDialog : public QDialog {
+	Q_OBJECT
 public:
 
-    OpenDialog(QWidget *parent);
+	OpenDialog(QWidget *parent);
 
-    void setProgram(QString program);
-    void setArguments(QString program);
-    QString getProgram();
-    QString getArguments();
-    
-    void setTcpRemoteHost(QString host);
-    QString getTcpRemoteHost();
-    
-    void setTcpRemotePort(int port);
-    int getTcpRemotePort();
-    
+	void setProgram(QString program);
+	void setArguments(QString program);
+	QString getProgram();
+	QString getArguments();
 
-    void setTcpRemoteProgram(QString path);
-    QString getTcpRemoteProgram();
-    
-    void setMode(ConnectionMode mode);
-    ConnectionMode getMode();
+	void setTcpRemoteHost(QString host);
+	QString getTcpRemoteHost();
 
-    void setInitCommands(QStringList commandList);
-    QStringList getInitCommands();
+	void setTcpRemotePort(int port);
+	int getTcpRemotePort();
 
-    void setGdbPath(QString path);
-    QString getGdbPath();
 
-    void loadConfig(Settings &cfg);
-    void saveConfig(Settings *cfg);
-    
-    
+	void setTcpRemoteProgram(QString path);
+	QString getTcpRemoteProgram();
+
+	void setMode(ConnectionMode mode);
+	ConnectionMode getMode();
+
+	void setInitCommands(QStringList commandList);
+	QStringList getInitCommands();
+
+	void setGdbPath(QString path);
+	QString getGdbPath();
+
+	void loadConfig(Settings &cfg);
+	void saveConfig(Settings *cfg);
+
 private:
-    void onBrowseForProgram(QString *path);
-    
+	void onBrowseForProgram(QString *path);
+
 private slots:
-    void onConnectionTypeLocal(bool checked);
-    void onConnectionTypeTcp(bool checked);
-    
-    void onSelectTcpProgram();
-    void onSelectProgram();
+	void onConnectionTypeLocal(bool checked);
+	void onConnectionTypeTcp(bool checked);
+
+	void onSelectTcpProgram();
+	void onSelectProgram();
 
 private:
-    Ui_OpenDialog m_ui;
-    
+	Ui_OpenDialog m_ui;
+
 };
 
 #endif // FILE__ABOUTDIALOG_H
-

@@ -5,51 +5,48 @@
 #include <QString>
 #include <QColor>
 
-class Entry
-{
+class Entry {
 public:
-    Entry(const Entry &other);
-    Entry(QString name_) : name(name_) {};
-     
-    QString name;
-    QString value;
+	Entry(const Entry &other);
+	Entry(QString name_) : name(name_) {};
+
+	QString name;
+	QString value;
 };
 
-class Ini
-{
+class Ini {
 public:
+	Ini();
+	Ini(const Ini &src);
 
-    Ini();
-    Ini(const Ini &src);
+	virtual ~Ini();
 
-    virtual ~Ini();
+	Ini& operator= (const Ini &src);
+	void copy(const Ini &src);
 
-    Ini& operator= (const Ini &src);
-    void copy(const Ini &src);
-    
-    void setInt(QString name, int value);
-    void setString(QString name, QString value);
-    void setStringList(QString name, QStringList value);
-    void setBool(QString name, bool value);
-    
-    bool getBool(QString name, bool defaultValue = false);
-    int getInt(QString name, int defaultValue = -1);
-    QColor getColor(QString name, QColor defaultValue);
-    QString getString(QString name, QString defaultValue = "");
-    QStringList getStringList(QString name, QStringList defaultValue);
-    void setColor(QString name, QColor value);
-    
-    int appendLoad(QString filename);
-    int save(QString filename);
-    void dump();
+	void setInt(QString name, int value);
+	void setString(QString name, QString value);
+	void setStringList(QString name, QStringList value);
+	void setBool(QString name, bool value);
 
-private:
-    void removeAll();
-    Entry *findEntry(QString name);
-    Entry *addEntry(QString name);
+	bool getBool(QString name, bool defaultValue = false);
+	int getInt(QString name, int defaultValue = -1);
+	QColor getColor(QString name, QColor defaultValue);
+	QString getString(QString name, QString defaultValue = "");
+	QStringList getStringList(QString name, QStringList defaultValue);
+	void setColor(QString name, QColor value);
+
+	int appendLoad(QString filename);
+	int save(QString filename);
+	void dump();
 
 private:
-    QVector<Entry*> m_entries;
+	void removeAll();
+	Entry *findEntry(QString name);
+	Entry *addEntry(QString name);
+
+private:
+	QVector<Entry*> m_entries;
 };
 
 #endif // FILE__INI_H

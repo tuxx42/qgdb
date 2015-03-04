@@ -6,33 +6,31 @@
 #include "settings.h"
 #include "ui_settingsdialog.h"
 
-
-class SettingsDialog : public QDialog
-{
-    Q_OBJECT
+class SettingsDialog : public QDialog {
+Q_OBJECT
 
 public:
 
-    SettingsDialog(QWidget *parent, Settings *cfg);
+	SettingsDialog(QWidget *parent, Settings *cfg);
 
-    void getConfig(Settings *cfg);
-    
+	void getConfig(Settings *cfg);
+
 private:    
-    void saveConfig();
-    void loadConfig();
-    void updateGui();
-    
+	void saveConfig();
+	void loadConfig();
+	void updateGui();
 
-private slots:
 
-    void onSelectFont();
+	private slots:
+
+		void onSelectFont();
 
 private:
-    Ui_SettingsDialog m_ui;
-    Settings *m_cfg;
+	Ui_SettingsDialog m_ui;
+	Settings *m_cfg;
 
-    QString m_settingsFontFamily;    
-    int m_settingsFontSize;
+	QString m_settingsFontFamily;    
+	int m_settingsFontSize;
 };
 
 #endif // FILE__SETTINGSDIALOG_H

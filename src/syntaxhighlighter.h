@@ -6,43 +6,41 @@
 #include <QColor>
 #include <QHash>
 
-struct TextField
-{
-    QColor m_color;
-    QString m_text;
-    enum {COMMENT, WORD, STRING, SPACES} m_type;
+struct TextField {
+	QColor m_color;
+	QString m_text;
+	enum {COMMENT, WORD, STRING, SPACES} m_type;
 
-    bool isSpaces() const { return m_type == SPACES ? true : false; };
+	bool isSpaces() const { return m_type == SPACES ? true : false; };
 };
 
 
-class SyntaxHighlighter
-{
+class SyntaxHighlighter {
 public:
-    SyntaxHighlighter();
-    virtual ~SyntaxHighlighter();
-    
-    void colorize(QString rowText);
+	SyntaxHighlighter();
+	virtual ~SyntaxHighlighter();
 
-    QVector<TextField*> getRow(unsigned int rowIdx);
-    unsigned int getRowCount() { return m_rows.size(); };
-    void reset();
+	void colorize(QString rowText);
 
-    bool isKeyword(QString text) const;
-    bool isSpecialChar(char c) const;
-    bool isSpecialChar(TextField *field) const;
+	QVector<TextField*> getRow(unsigned int rowIdx);
+	unsigned int getRowCount() { return m_rows.size(); };
+	void reset();
 
-private:
-    struct Row
-    {
-        QVector<TextField*>  fields;
-    };
-private:
-    void pickColor(TextField *field);
+	bool isKeyword(QString text) const;
+	bool isSpecialChar(char c) const;
+	bool isSpecialChar(TextField *field) const;
 
 private:
-    QVector <Row*> m_rows;
-    QHash <QString, bool> m_keywords;
+	struct Row
+	{
+		QVector<TextField*>  fields;
+	};
+private:
+	void pickColor(TextField *field);
+
+private:
+	QVector <Row*> m_rows;
+	QHash <QString, bool> m_keywords;
 };
 
 #endif // #ifndef FILE__SYNTAXHIGHLIGHTER

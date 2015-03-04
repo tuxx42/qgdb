@@ -1,4 +1,4 @@
-QT += gui core
+QT += gui core widgets
 
 TEMPLATE = app
 
@@ -7,11 +7,11 @@ SOURCES+=gd.cpp
 SOURCES+=mainwindow.cpp
 HEADERS+=mainwindow.h
 
-SOURCES+=codeview.cpp
-HEADERS+=codeview.h
-
 SOURCES+=core.cpp
 HEADERS+=core.h
+
+SOURCES+=codeviewer.cpp
+HEADERS+=codeviewer.h
 
 SOURCES+=com.cpp
 HEADERS+=com.h
@@ -28,8 +28,8 @@ HEADERS+=tree.h
 SOURCES+=aboutdialog.cpp
 HEADERS+=aboutdialog.h
 
-SOURCES+=syntaxhighlighter.cpp
-HEADERS+=syntaxhighlighter.h
+SOURCES+=highlighter.cpp
+HEADERS+=highlighter.h
 
 SOURCES+=ini.cpp
 HEADERS+=ini.h
@@ -57,8 +57,4 @@ RESOURCES += resource.qrc
 
 QMAKE_CXXFLAGS += -I./  -g
 
-
-TARGET=gede
-
-
-
+TARGET=qgdb

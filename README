@@ -1,3 +1,16 @@
+QDGB
+----
+
+QGDB is a fork of Gede which has undergone significant changes
+to the GUI and minor changes to the GBD/MII backend
+
+All modifications were done by Joel Thomas
+Copyright (C) 2015 - as Gede
+
+
+
+
+
 Gede
 ----
 
@@ -8,6 +21,3 @@ The Gede sourcecode is licensed under the terms of the BSD license.
 
 The icons used are from the NetBeans project and licensed under the
 terms of the NetBeans License Agreement.
-
-
-
